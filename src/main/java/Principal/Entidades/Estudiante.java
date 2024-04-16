@@ -1,9 +1,29 @@
 package Principal.Entidades;
 
-public class Estudiante {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-	private int id,IdSexo;
-	private String nombre , apellido_1, apellido_2,DNI,Direccion,email,telefono,colorpreferido;
+@Entity
+public class Estudiante extends Entidad{
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private int IdSexo;
+	private String nombre ;
+	@Column(name = "apellido1")
+	private String apellido_1;
+
+	@Column(name = "apellido2")
+	private String apellido_2;
+	private String DNI,Direccion,email,telefono,colorpreferido;
+
+	@Override
+	public String toString() {
+		return   nombre +" "+ apellido_1 + " " + apellido_2;
+	}
 
 	public String getColorpreferido() {
 		return colorpreferido;

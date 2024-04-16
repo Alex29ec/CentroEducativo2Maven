@@ -74,7 +74,7 @@ public class panelDatosPersonales extends JPanel {
 			}
 		});
 
-		button.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("/res/gotostart.png")));
+		button.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("../res/gotostart.png")));
 		toolBar.add(button);
 
 		JButton button_1 = new JButton("");
@@ -84,7 +84,7 @@ public class panelDatosPersonales extends JPanel {
 				;
 			}
 		});
-		button_1.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("/res/previous.png")));
+		button_1.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("../res/previous.png")));
 		toolBar.add(button_1);
 
 		JButton button_2 = new JButton("");
@@ -93,7 +93,7 @@ public class panelDatosPersonales extends JPanel {
 				runnableMostrarSiguienteRegistro.run();
 			}
 		});
-		button_2.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("/res/next.png")));
+		button_2.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("../res/next.png")));
 		toolBar.add(button_2);
 
 		JButton button_3 = new JButton("");
@@ -102,7 +102,7 @@ public class panelDatosPersonales extends JPanel {
 				runnableMostrarUltimoRegistro.run();
 			}
 		});
-		button_3.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("/res/gotoend.png")));
+		button_3.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("../res/gotoend.png")));
 		toolBar.add(button_3);
 
 		JButton button_4 = new JButton("");
@@ -112,7 +112,7 @@ public class panelDatosPersonales extends JPanel {
 
 			}
 		});
-		button_4.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("/res/nuevo.png")));
+		button_4.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("../res/nuevo.png")));
 		toolBar.add(button_4);
 
 		JButton button_5 = new JButton("");
@@ -121,7 +121,7 @@ public class panelDatosPersonales extends JPanel {
 				runnableGuardar.run();
 			}
 		});
-		button_5.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("/res/guardar.png")));
+		button_5.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("../res/guardar.png")));
 		toolBar.add(button_5);
 
 		JButton button_6 = new JButton("");
@@ -131,7 +131,7 @@ public class panelDatosPersonales extends JPanel {
 			}
 		});
 
-		button_6.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("/res/eliminar.png")));
+		button_6.setIcon(new ImageIcon(panelDatosPersonales.class.getResource("../res/eliminar.png")));
 		toolBar.add(button_6);
 
 		panel = new JPanel();

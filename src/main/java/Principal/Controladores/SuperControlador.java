@@ -6,6 +6,8 @@ import java.sql.Statement;
 
 
 public class SuperControlador {
+	
+	
 	protected static int maxIdEnTabla(String nombreTabla) {
 		try {
 			Statement s = ConnectionManager.getConexion().createStatement();

@@ -44,7 +44,7 @@ public class PanelCurso extends JPanel {
 		});
 
 		
-		btnPrimero.setIcon(new ImageIcon(PanelCurso.class.getResource("/gestionFabricantesGrafico/recursos/gotostart.png")));
+		btnPrimero.setIcon(new ImageIcon(PanelCurso.class.getResource("../res/gotostart.png")));
 		toolBar.add(btnPrimero);
 		
 		JButton btnAntes = new JButton("");
@@ -54,7 +54,7 @@ public class PanelCurso extends JPanel {
 				cargarAnterior();
 			}
 		});
-		btnAntes.setIcon(new ImageIcon(PanelCurso.class.getResource("/gestionFabricantesGrafico/recursos/previous.png")));
+		btnAntes.setIcon(new ImageIcon(PanelCurso.class.getResource("../res/previous.png")));
 		toolBar.add(btnAntes);
 		
 		JButton btnDespues = new JButton("");
@@ -63,7 +63,7 @@ public class PanelCurso extends JPanel {
 				cargarSiguiente();
 			}
 		});
-		btnDespues.setIcon(new ImageIcon(PanelCurso.class.getResource("/gestionFabricantesGrafico/recursos/next.png")));
+		btnDespues.setIcon(new ImageIcon(PanelCurso.class.getResource("../res/next.png")));
 		toolBar.add(btnDespues);
 		
 		JButton btnUltimo = new JButton("");
@@ -73,7 +73,7 @@ public class PanelCurso extends JPanel {
 				
 			}
 		});
-		btnUltimo.setIcon(new ImageIcon(PanelCurso.class.getResource("/gestionFabricantesGrafico/recursos/gotoend.png")));
+		btnUltimo.setIcon(new ImageIcon(PanelCurso.class.getResource("../res/gotoend.png")));
 		toolBar.add(btnUltimo);
 		
 		JButton button = new JButton("");
@@ -82,7 +82,7 @@ public class PanelCurso extends JPanel {
 				nuevo();
 			}
 		});
-		button.setIcon(new ImageIcon(PanelCurso.class.getResource("/gestionFabricantesGrafico/recursos/nuevo.png")));
+		button.setIcon(new ImageIcon(PanelCurso.class.getResource("../res/nuevo.png")));
 		toolBar.add(button);
 		
 		JButton button_1 = new JButton("");
@@ -91,7 +91,7 @@ public class PanelCurso extends JPanel {
 				guardar();
 			}
 		});
-		button_1.setIcon(new ImageIcon(PanelCurso.class.getResource("/gestionFabricantesGrafico/recursos/guardar.png")));
+		button_1.setIcon(new ImageIcon(PanelCurso.class.getResource("../res/guardar.png")));
 		toolBar.add(button_1);
 		
 		JButton button_2 = new JButton("");
@@ -100,7 +100,7 @@ public class PanelCurso extends JPanel {
 			eliminar();
 			}
 		});
-		button_2.setIcon(new ImageIcon(PanelCurso.class.getResource("/gestionFabricantesGrafico/recursos/eliminar.png")));
+		button_2.setIcon(new ImageIcon(PanelCurso.class.getResource("../res/eliminar.png")));
 		toolBar.add(button_2);
 		
 		JPanel panel = new JPanel();

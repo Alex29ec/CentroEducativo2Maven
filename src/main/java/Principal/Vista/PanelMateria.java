@@ -52,7 +52,7 @@ public class PanelMateria extends JPanel {
 				cargarPrimero();
 			}
 		});
-		button.setIcon(new ImageIcon(PanelMateria.class.getResource("/gestionFabricantesGrafico/recursos/gotostart.png")));
+		button.setIcon(new ImageIcon(PanelMateria.class.getResource("../res/gotostart.png")));
 		toolBar.add(button);
 		
 		JButton btnNewButton = new JButton("");
@@ -61,7 +61,7 @@ public class PanelMateria extends JPanel {
 				cargarAnterior();
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(PanelMateria.class.getResource("/gestionFabricantesGrafico/recursos/previous.png")));
+		btnNewButton.setIcon(new ImageIcon(PanelMateria.class.getResource("../res/previous.png")));
 		toolBar.add(btnNewButton);
 		
 		JButton button_1 = new JButton("");
@@ -70,7 +70,7 @@ public class PanelMateria extends JPanel {
 				cargarSiguiente();
 			}
 		});
-		button_1.setIcon(new ImageIcon(PanelMateria.class.getResource("/gestionFabricantesGrafico/recursos/next.png")));
+		button_1.setIcon(new ImageIcon(PanelMateria.class.getResource("../res/next.png")));
 		toolBar.add(button_1);
 		
 		JButton button_2 = new JButton("");
@@ -79,7 +79,7 @@ public class PanelMateria extends JPanel {
 			cargarUltimo();
 			}
 		});
-		button_2.setIcon(new ImageIcon(PanelMateria.class.getResource("/gestionFabricantesGrafico/recursos/gotoend.png")));
+		button_2.setIcon(new ImageIcon(PanelMateria.class.getResource("../res/gotoend.png")));
 		toolBar.add(button_2);
 		
 		JButton button_3 = new JButton("");
@@ -88,7 +88,7 @@ public class PanelMateria extends JPanel {
 				nuevo();
 			}
 		});
-		button_3.setIcon(new ImageIcon(PanelMateria.class.getResource("/gestionFabricantesGrafico/recursos/nuevo.png")));
+		button_3.setIcon(new ImageIcon(PanelMateria.class.getResource("../res/nuevo.png")));
 		toolBar.add(button_3);
 		
 		JButton button_4 = new JButton("");
@@ -97,7 +97,7 @@ public class PanelMateria extends JPanel {
 				guardar();
 			}
 		});
-		button_4.setIcon(new ImageIcon(PanelMateria.class.getResource("/gestionFabricantesGrafico/recursos/guardar.png")));
+		button_4.setIcon(new ImageIcon(PanelMateria.class.getResource("../res/guardar.png")));
 		toolBar.add(button_4);
 		
 		JButton button_5 = new JButton("");
@@ -106,7 +106,7 @@ public class PanelMateria extends JPanel {
 				eliminar();
 			}
 		});
-		button_5.setIcon(new ImageIcon(PanelMateria.class.getResource("/gestionFabricantesGrafico/recursos/eliminar.png")));
+		button_5.setIcon(new ImageIcon(PanelMateria.class.getResource("../res/eliminar.png")));
 		toolBar.add(button_5);
 		
 		JPanel panel = new JPanel();
