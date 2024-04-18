@@ -9,6 +9,7 @@ import Principal.Vista.PanelEstudiante;
 import Principal.Vista.PanelMateria;
 import Principal.Vista.PanelNotaJPA;
 import Principal.Vista.PanelProfesor;
+import Principal.Vista.PanelTabla;
 import Principal.Vista.PanelValoracionMateria;
 
 
@@ -38,6 +39,7 @@ public class Principal extends JFrame{
 		PanelValoracionMateria panelvaloracion = new PanelValoracionMateria();
 		PanelNotaJPA panelNota = new PanelNotaJPA();
 		Menu menu = new Menu();
+		PanelTabla paneltabla= new PanelTabla();
 		
 		panelTabbed.addTab("Cursos", panelcurso);
 		panelTabbed.addTab("Materias", panelmateria);
@@ -45,6 +47,8 @@ public class Principal extends JFrame{
 		panelTabbed.addTab("Profesor", panelprofesor);
 		panelTabbed.addTab("Valoracion", panelvaloracion);
 		panelTabbed.add("Nota",panelNota);
+		panelTabbed.add("Tabla",paneltabla);
+		
 		
 
 		this.setJMenuBar(menu);

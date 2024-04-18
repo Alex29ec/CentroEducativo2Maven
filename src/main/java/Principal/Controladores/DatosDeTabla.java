@@ -3,8 +3,6 @@ package Principal.Controladores;
 import java.util.List;
 
 import Principal.Entidades.Estudiante;
-import tutorialJava.modelosBasesDeDatosComunesJPA.poblacionPorProvincias.Persona;
-import tutorialJava.modelosBasesDeDatosComunesJPA.poblacionPorProvincias.controladores.PersonaControlador;
 
 public class DatosDeTabla {
 
@@ -13,7 +11,7 @@ public class DatosDeTabla {
 	 * @return
 	 */
 	public static String[] getTitulosColumnas() {
-		return new String[] {"Id", "Nombre", "1º apellido", "2º apellido", "Fecha Nac.", "Edad", "Activo", "Provincia"};
+		return new String[] {"Id", "Nombre", "1º apellido", "2º apellido", "DNI", "Direccion", "Email", "Telefono", "IdSexo","Color Preferido","Imagen"};
 	}
 
 	/**
@@ -24,7 +22,7 @@ public class DatosDeTabla {
 		// Obtengo todas las personas
 		List<Estudiante> personas = (List<Estudiante>) ControladorEstudianteJPA.getInstance().findAll();
 		// Preparo una estructura para pasar al constructor de la JTable
-		Object[][] datos = new Object[personas.size()][8];
+		Object[][] datos = new Object[personas.size()][11];
 		// Cargo los datos de la lista de personas en la matriz de los datos
 		for (int i = 0; i < personas.size(); i++) {
 			Estudiante persona = personas.get(i);
