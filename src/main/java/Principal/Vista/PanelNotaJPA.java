@@ -19,13 +19,20 @@ import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+
 import java.awt.Insets;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
@@ -40,8 +47,8 @@ public class PanelNotaJPA extends JPanel {
 	private JList<Estudiante> listaEstudiantesNoS;
 	private DefaultListModel<Estudiante> listaMEstudiantes;
 	private DefaultListModel<Estudiante> listaMEstudiantesNoS;
-	private JTextField jtfFecha;
-
+	JFormattedTextField jtffecha;
+	Date fechahora;
 	/**
 	 * Create the panel.
 	 */
@@ -124,14 +131,13 @@ public class PanelNotaJPA extends JPanel {
 		gbc_lblFecha.gridy = 3;
 		panel.add(lblFecha, gbc_lblFecha);
 		
-		jtfFecha = new JTextField();
-		GridBagConstraints gbc_jtfFecha = new GridBagConstraints();
-		gbc_jtfFecha.insets = new Insets(0, 0, 5, 5);
-		gbc_jtfFecha.fill = GridBagConstraints.HORIZONTAL;
-		gbc_jtfFecha.gridx = 1;
-		gbc_jtfFecha.gridy = 3;
-		panel.add(jtfFecha, gbc_jtfFecha);
-		jtfFecha.setColumns(10);
+		jtffecha = getJFormattedTextFieldDatePersonalizado();
+		GridBagConstraints gbc_jtffecha = new GridBagConstraints();
+		gbc_jtffecha.insets = new Insets(0, 0, 5, 5);
+		gbc_jtffecha.fill = GridBagConstraints.HORIZONTAL;
+		gbc_jtffecha.gridx = 1;
+		gbc_jtffecha.gridy = 3;
+		panel.add(jtffecha, gbc_jtffecha);
 		GridBagConstraints gbc_btnActualizarEstudiante = new GridBagConstraints();
 		gbc_btnActualizarEstudiante.anchor = GridBagConstraints.EAST;
 		gbc_btnActualizarEstudiante.gridx = 2;
@@ -144,7 +150,7 @@ public class PanelNotaJPA extends JPanel {
 		JButton btnGuardarNotaAlumno = new JButton("Guardar Nota Alumno Seleccionados");
 		btnGuardarNotaAlumno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				guardar();
 			}
 		});
 		panel_1.add(btnGuardarNotaAlumno);
@@ -300,6 +306,7 @@ private List<Estudiante> getEstudiantesSeleccionados() {
         
         return l;
     }
+
 	private void guardar(){
 	    
 
@@ -310,18 +317,45 @@ private List<Estudiante> getEstudiantesSeleccionados() {
                 
                 if (SuperControladorJPA.obtenerValoracionSinNota(estudiante, (Materia)this.jcbMateria.getSelectedItem(), (Profesor)this.jcbProfesor.getSelectedItem()) == null) {
                     
-                    ControladorValoracionMateriaJPA.insert(estudiante, (Profesor)this.jcbProfesor.getSelectedItem(), (Materia)this.jcbMateria.getSelectedItem(), (Integer)this.jcbNota.getSelectedItem(), jtfFecha);
+                    ControladorValoracionMateriaJPA.insert(estudiante, (Profesor)this.jcbProfesor.getSelectedItem(), (Materia)this.jcbMateria.getSelectedItem(), (Integer)this.jcbNota.getSelectedItem(),fechahora);
                 }
                 else {
-                    ControladorValoracionMateriaJPA.update(estudiante, (Profesor)this.jcbProfesor.getSelectedItem(), (Materia)this.jcbMateria.getSelectedItem(), (Integer)this.jcbNota.getSelectedItem(), jtfFecha);;
+                    ControladorValoracionMateriaJPA.update(estudiante, (Profesor)this.jcbProfesor.getSelectedItem(), (Materia)this.jcbMateria.getSelectedItem(), (Integer)this.jcbNota.getSelectedItem(), fechahora);;
                 }
             }
             
             
         }
+    }
+	
+private JFormattedTextField getJFormattedTextFieldDatePersonalizado() {
+        
+        this.jtffecha = new JFormattedTextField(
+                new JFormattedTextField.AbstractFormatter() {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
+            @Override
+            public String valueToString(Object value) throws ParseException {
+                if (value != null && value instanceof Date) {
+                    return sdf.format(((Date) value));
+                }
+                return "";
+            }
+
+            @Override
+            public Object stringToValue(String text) throws ParseException {
+                try {
+                    fechahora = (Date) sdf.parse(text);
+                    return sdf.parse(text);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error en la fecha");
+                    return null;
+                }
+            }
+        });
         
-        
+        return this.jtffecha;
     }
 
 	private void CargarEstudiantes() {

@@ -29,12 +29,18 @@ public class SuperControladorJPA {
 		ValoracionMateria v = new ValoracionMateria();
 		v.setIdEstudiante(e.getId());
 		v.setIdMateria(m.getId());
-		v.set
+		v.setIdProfesor(p.getId());
+		v.setValoracion(nota);
+		v.setDate(fecha);
 	}
-	public static void update(Entidad e) {
-	EntityManager em = getEntityManager();
+	
+	public static void update(Estudiante e,Profesor p, Materia m, Integer nota, Date fecha) {
+		ValoracionMateria v = obtenerValoracionSinNota(e, m, p);
+		v.setValoracion(nota);
+		v.setDate(fecha);
+		
 		em.getTransaction().begin();
-			em.merge(e);
+		em.merge(v);
 		em.getTransaction().commit();
 	}
 	

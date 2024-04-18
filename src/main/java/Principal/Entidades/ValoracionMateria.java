@@ -1,5 +1,8 @@
 package Principal.Entidades;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +16,17 @@ public class ValoracionMateria {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private int idProfesor, idMateria, idEstudiante;
+	@Column(name="fecha")
+	Date date;
+	public Date getDate() {
+		return date;
+	}
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 
 	private float valoracion;
 
