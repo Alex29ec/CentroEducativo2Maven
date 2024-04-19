@@ -18,7 +18,9 @@ public class Estudiante extends Entidad{
 
 	@Column(name = "apellido2")
 	private String apellido_2;
-	private String DNI,Direccion,email,telefono,colorpreferido;
+	private String DNI,Direccion,email,telefono;
+	@Column(name = "colorFavorito")
+	private String colorpreferido;
 
 	@Override
 	public String toString() {

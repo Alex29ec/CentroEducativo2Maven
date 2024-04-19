@@ -37,7 +37,7 @@ public class DatosDeTabla {
 			datos[i][8] = persona.getIdSexo();
 			datos[i][9] = persona.getColorpreferido();
 			datos[i][10] = persona.getImagen();
-		}
+					}
 		
 		return datos;
 	}

@@ -1,7 +1,14 @@
 package Principal.Entidades;
 
-public class Sexo {
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
+public class Sexo extends Entidad{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
 	String descripcion;
 	

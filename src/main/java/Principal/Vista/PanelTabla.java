@@ -2,7 +2,7 @@ package Principal.Vista;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
+import javax.swing.JScrollPane;
 
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
@@ -13,7 +13,9 @@ import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.table.DefaultTableModel;
 
+import Principal.Controladores.ControladorEstudianteJPA;
 import Principal.Controladores.DatosDeTabla;
+import Principal.Entidades.Estudiante;
 
 public class PanelTabla extends JPanel {
 
@@ -22,30 +24,35 @@ public class PanelTabla extends JPanel {
 	private String titulosEnTabla[] = DatosDeTabla.getTitulosColumnas();
 
 	private static final long serialVersionUID = 1L;
-	private JTable table;
+	private JTable table_1;
 
 
 	public PanelTabla() {
 		setLayout(new BorderLayout(0, 0));
-		
 		JSplitPane splitPane = new JSplitPane();
 		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		add(splitPane, BorderLayout.CENTER);
 		
-		splitPane.setLeftComponent(dtm);
+		this.dtm = getDefaultTableModelNoEditable();
+		table_1 = new JTable(dtm);
 
-		// Inicializo el DefaultTableModel
-				this.dtm = getDefaultTableModelNoEditable();
-				// Creo la tabla con el DefaultTableModel del método más abajo
-				JTable jTable = new JTable(dtm);
+		JScrollPane scrollpane=new JScrollPane(table_1);
+		splitPane.setLeftComponent(scrollpane);
+		
+		
 				
-				// Demostración de como acceder al clic del ratón sobre la tabla y sobrescribir un valor en la misma
-				jTable.addMouseListener(new MouseAdapter() {
+			
+				table_1.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						super.mouseClicked(e);
-						int indiceFilaSel = jTable.getSelectedRow();
-
+						int indiceFilaSel = table_1.getSelectedRow();		
+						Object value = datosEnTabla[indiceFilaSel][0];
+						Estudiante estselecc = ControladorEstudianteJPA.getInstance().obtenerEstudiantePorId((Integer)value);
+						PanelEstudiante2 panelestudiante2 = new PanelEstudiante2(estselecc);
+						JScrollPane scrollpane2 = new JScrollPane(panelestudiante2);
+						splitPane.setRightComponent(scrollpane2);
+						splitPane.setResizeWeight(0.25);
 					}
 				});
 	}

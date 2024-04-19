@@ -16,6 +16,9 @@ public class ControladorEstudianteJPA extends SuperControladorJPA{
 ;		}
 		return instance;
 	}
-	
+	public Estudiante obtenerEstudiantePorId(int idEstudiante) {
+        return  (Estudiante) getEntityManager().createNativeQuery("SELECT * FROM estudiante where id = " + idEstudiante, Estudiante.class).getSingleResult();
+
+    }
 	
 }
