@@ -39,7 +39,7 @@ public class Principal extends JFrame{
 		PanelValoracionMateria panelvaloracion = new PanelValoracionMateria();
 		PanelNotaJPA panelNota = new PanelNotaJPA();
 		Menu menu = new Menu();
-		PanelTabla paneltabla= new PanelTabla();
+		PanelTabla paneltabla= PanelTabla.getInstance();
 		
 		panelTabbed.addTab("Cursos", panelcurso);
 		panelTabbed.addTab("Materias", panelmateria);

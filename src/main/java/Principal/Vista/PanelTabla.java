@@ -1,6 +1,5 @@
 package Principal.Vista;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -10,7 +9,6 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
-import javax.swing.JToolBar;
 import javax.swing.table.DefaultTableModel;
 
 import Principal.Controladores.ControladorEstudianteJPA;
@@ -19,14 +17,32 @@ import Principal.Entidades.Estudiante;
 
 public class PanelTabla extends JPanel {
 
+	public Object[][] getDatosEnTabla() {
+		return datosEnTabla;
+	}
+
+	public void setDatosEnTabla(Object[][] datosEnTabla) {
+		this.datosEnTabla = datosEnTabla;
+	}
+
+
 	private DefaultTableModel dtm = null;
 	private Object datosEnTabla[][] = DatosDeTabla.getDatosDeTabla();
 	private String titulosEnTabla[] = DatosDeTabla.getTitulosColumnas();
 
 	private static final long serialVersionUID = 1L;
 	private JTable table_1;
+	
+	private static PanelTabla instance = null;
 
 
+	public static PanelTabla getInstance() {
+		if(instance == null ) {
+			instance = new PanelTabla()
+;		}
+		return instance;
+	}
+	
 	public PanelTabla() {
 		setLayout(new BorderLayout(0, 0));
 		JSplitPane splitPane = new JSplitPane();

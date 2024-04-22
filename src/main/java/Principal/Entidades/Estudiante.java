@@ -5,12 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="estudiante")
 public class Estudiante extends Entidad{
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+@Column(name="sexo_id")
 	private int IdSexo;
 	private String nombre ;
 	@Column(name = "apellido1")

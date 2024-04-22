@@ -79,4 +79,11 @@ return null;
 		}
 		return em;
 		}
+	
+	
+	public static void update(Entidad e) {
+		em.getTransaction().begin();
+		em.merge(e);
+		em.getTransaction().commit();
+	}
 }
